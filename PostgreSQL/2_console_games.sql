@@ -16,12 +16,17 @@ where global_sales > 0;
 
 -- extract a view of console games titles 
 --  ordered by platform name in ascending order and year of release in descending order
+select * from console_games
+order by platform asc , game_year desc;
 
 
--- for eacg game title extract the first four letters of the pulshers name
+-- for each game title extract the first four letters of the publishers name
+select game_name, left(publisher, 4) from console_games;
+
 
 -- display all the console platforms which were released wither just before Black Friday 
 -- just before Christmas (in any year)
+
 
 -- order the platforms by their longetivity in ascending order (ie, the platform which was 
 --  available for the longest at the bottom)
