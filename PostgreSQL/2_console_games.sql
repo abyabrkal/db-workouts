@@ -26,11 +26,26 @@ select game_name, left(publisher, 4) from console_games;
 
 -- display all the console platforms which were released wither just before Black Friday 
 -- just before Christmas (in any year)
+select platform_name
+from console_dates
+where date_part('month', first_retail_availability) - 11 = 0 	-- before Black Friday
+or date_part('month', first_retail_availability) - 12 = 0 		-- before Christmas
 
 
 -- order the platforms by their longetivity in ascending order (ie, the platform which was 
 --  available for the longest at the bottom)
+select * , (discontinued - first_retail_availability) as days_existed from console_dates
+order by days_existed asc;
+--OR by using AGE function (BEST way to get difference in two dates)
+select *, age(discontinued, first_retail_availability) as platform_alive from console_dates
+order by platform_alive asc;
+
+
+--** all which are before month of 11
+select * from console_dates where date_part('month', first_retail_availability) - 11 = 0;
+
 
 -- demonstrate how to deal with the Game_Year column if the client wants to covert it to a different data type
+
 
 -- provide recommendations on how to deal with missing data in the file.
