@@ -36,7 +36,8 @@ or date_part('month', first_retail_availability) - 12 = 0 		-- before Christmas
 --  available for the longest at the bottom)
 select * , (discontinued - first_retail_availability) as days_existed from console_dates
 order by days_existed asc;
---OR by using AGE function (BEST way to get difference in two dates)
+--OR by using AGE function (BEST way to get difference in two dates
+)
 select *, age(discontinued, first_retail_availability) as platform_alive from console_dates
 order by platform_alive asc;
 
@@ -46,6 +47,10 @@ select * from console_dates where date_part('month', first_retail_availability) 
 
 
 -- demonstrate how to deal with the Game_Year column if the client wants to covert it to a different data type
+select game_year::varchar(4) from console_games order by game_rank;
 
+select to_date(CAST(game_year as varchar(4)), 'yyyy') from console_games order by game_rank;
 
 -- provide recommendations on how to deal with missing data in the file.
+--Delete the rows with main data missing
+--or average values can be filled in if we have comparable data available.
