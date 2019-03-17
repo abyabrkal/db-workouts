@@ -9,14 +9,14 @@ db.info().then((info) => {
 
 /* Adding a new document (row) */
 /*var doc = {
-   _id : '01',
-   name: 'John Doe',
-   age : 24,
-   designation : 'Developer',
+   _id : '02',
+   name: 'Nickolas Fury',
+   age : 32,
+   designation : 'Head of Shield',
    country: 'US'
   };
-  db.put(doc);*/
- 
+  db.put(doc);
+ */
 
 /********************************************************** 
     You can add documents as shown above.
@@ -41,7 +41,7 @@ db.info().then((info) => {
 
 /********************************************************** */
     // fetch user doc
-    db.get('01')
+/*    db.get('01')
         .then(function (doc) {
             // update their age
             doc.age = 40;
@@ -55,9 +55,10 @@ db.info().then((info) => {
         .then(function (doc) {
             console.log(doc);
         });
+*/
 
 /* Retrieving the document via _id */  
-  db.get('01').then(function (doc) {
+  db.get('02').then(function (doc) {
     console.log(doc);
   });
 
